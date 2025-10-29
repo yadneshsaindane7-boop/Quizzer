@@ -1,12 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Orbitron', monospace, monospace;
   background: linear-gradient(135deg, #17202a 0%, #1c2833 100%);
-  margin: 0; padding: 0;
-  display: flex; justify-content: center; align-items: flex-start;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   color: #ecf0f1;
+}
+
+/* Wrapper for flex-grow push */
+.page-wrapper {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
 }
 
 .quiz-container {
@@ -38,7 +53,10 @@ h1 {
 }
 
 .btn-grid {
-  display: flex; flex-direction: column; gap: 18px; margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 28px;
 }
 
 button {
@@ -117,19 +135,33 @@ button:disabled {
   text-shadow: 0 0 14px #27ae60;
 }
 
+footer {
+  flex-shrink: 0;
+  position: relative;
+  width: 100vw;
+  height: 50px;
+  background: #17202a;
+  color: #2ecc71;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 22px;
+  box-shadow: 0 -4px 15px rgba(39, 174, 96, 0.8);
+  z-index: 1000;
+  user-select: none;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
 /* Responsive tweaks */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .quiz-container {
-    padding: 28px 20px;
+    padding: 28px 13px;
   }
-  h1 {
-    font-size: 1.9rem;
-  }
-  #question {
-    font-size: 1.25rem;
-  }
+  h1 { font-size: 1.4rem; }
+  #question { font-size: 1.07rem; }
   button, .next-btn, .start-btn, .restart-btn {
     font-size: 1rem;
-    padding: 12px 28px;
+    padding: 12px 18px;
   }
 }
