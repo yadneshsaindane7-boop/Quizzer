@@ -7,28 +7,30 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>Quizzer - A Hibro_Labs Venture</h1>
-
-    <div id="quiz" class="hidden">
-      <div id="question-container">
-        <p id="question"></p>
-        <div id="answer-buttons" class="btn-grid"></div>
-        <p id="answer-feedback" class="feedback-text hidden"></p>
+  <div class="page-wrapper">
+    <div class="quiz-container">
+      <h1>Quizzer - A<br />Hibro_Labs Venture</h1>
+      <div id="quiz" class="hidden">
+        <div id="question-container">
+          <p id="question"></p>
+          <div id="answer-buttons" class="btn-grid"></div>
+          <p id="answer-feedback" class="feedback-text hidden"></p>
+        </div>
+        <button id="next-btn" class="next-btn hidden">Next</button>
       </div>
-      <button id="next-btn" class="next-btn hidden">Next</button>
+      <div id="score-container" class="hidden">
+        <h2>Quiz Complete</h2>
+        <p>Your final score is:</p>
+        <p id="score" class="score-number"></p>
+        <button id="restart-btn" class="restart-btn">Play Again</button>
+      </div>
+      <button id="start-btn" class="start-btn">Start Quiz</button>
     </div>
-    
-    <div id="score-container" class="hidden">
-      <h2>Quiz Complete</h2>
-      <p>Your final score is:</p>
-      <p id="score" class="score-number"></p>
-      <button id="restart-btn" class="restart-btn">Play Again</button>
-    </div>
-
-    <button id="start-btn" class="start-btn">Start Quiz</button>
   </div>
-
-<script src="quiz.js"></script>
+  <footer>
+    Created by Yadnesh Saindane<br />
+    Under: Hibro-Labs Production
+  </footer>
+  <script src="quiz.js"></script>
 </body>
 </html>
