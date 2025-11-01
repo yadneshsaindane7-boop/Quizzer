@@ -1,4 +1,3 @@
-![Logo](qz.jpg)
 # Quizzer App By Yadnesh Saindane
 
 An interactive quiz web application built with HTML, CSS, and JavaScript to provide users with a fun and engaging way to test their knowledge.
@@ -51,3 +50,4 @@ This project is licensed under the terms described in the [LICENSE](LICENSE) fil
 ---
 
 Made with ❤️ by Yadnesh Saindane
+
