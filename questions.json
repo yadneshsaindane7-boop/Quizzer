@@ -1,0 +1,643 @@
+[
+  {
+    "category": "Marvel",
+    "question": "Who was the first villain the Avengers fought in the MCU?",
+    "answers": [
+      { "text": "Loki", "correct": true },
+      { "text": "Ultron", "correct": false },
+      { "text": "Red Skull", "correct": false },
+      { "text": "Thanos", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "What is Superman’s birth name?",
+    "answers": [
+      { "text": "Kal-El", "correct": true },
+      { "text": "Jor-El", "correct": false },
+      { "text": "Zor-El", "correct": false },
+      { "text": "Val-El", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "What is the name of the demon fox sealed inside Naruto?",
+    "answers": [
+      { "text": "Kurama", "correct": true },
+      { "text": "Shukaku", "correct": false },
+      { "text": "Gyūki", "correct": false },
+      { "text": "Matatabi", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "What metal is Wolverine’s skeleton coated with?",
+    "answers": [
+      { "text": "Adamantium", "correct": true },
+      { "text": "Vibranium", "correct": false },
+      { "text": "Titanium", "correct": false },
+      { "text": "Palladium", "correct": false }
+    ]
+  },
+  {
+    "category": "Hollywood",
+    "question": "Which movie features the quote 'Why so serious?'",
+    "answers": [
+      { "text": "The Dark Knight", "correct": true },
+      { "text": "Joker", "correct": false },
+      { "text": "Batman Begins", "correct": false },
+      { "text": "Inception", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "Which Infinity Stone is red?",
+    "answers": [
+      { "text": "Reality Stone", "correct": true },
+      { "text": "Power Stone", "correct": false },
+      { "text": "Soul Stone", "correct": false },
+      { "text": "Time Stone", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "What is Batman’s butler’s name?",
+    "answers": [
+      { "text": "Alfred Pennyworth", "correct": true },
+      { "text": "James Gordon", "correct": false },
+      { "text": "Lucius Fox", "correct": false },
+      { "text": "Harvey Bullock", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "Who created Ultron in the MCU?",
+    "answers": [
+      { "text": "Tony Stark", "correct": true },
+      { "text": "Bruce Banner", "correct": false },
+      { "text": "Hank Pym", "correct": false },
+      { "text": "Nick Fury", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "Who is known as the Pirate King in One Piece?",
+    "answers": [
+      { "text": "Gol D. Roger", "correct": true },
+      { "text": "Monkey D. Luffy", "correct": false },
+      { "text": "Shanks", "correct": false },
+      { "text": "Whitebeard", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "What is the name of Thor’s axe introduced in Infinity War?",
+    "answers": [
+      { "text": "Stormbreaker", "correct": true },
+      { "text": "Gungnir", "correct": false },
+      { "text": "Godslayer", "correct": false },
+      { "text": "Thunderstrike", "correct": false }
+    ]
+  },
+
+  {
+    "category": "DC",
+    "question": "Which Lantern Corps is powered by fear?",
+    "answers": [
+      { "text": "Yellow Lanterns", "correct": true },
+      { "text": "Green Lanterns", "correct": false },
+      { "text": "Red Lanterns", "correct": false },
+      { "text": "Blue Lanterns", "correct": false }
+    ]
+  },
+  {
+    "category": "Hollywood",
+    "question": "Who directed 'Django Unchained'?",
+    "answers": [
+      { "text": "Quentin Tarantino", "correct": true },
+      { "text": "Christopher Nolan", "correct": false },
+      { "text": "Martin Scorsese", "correct": false },
+      { "text": "Ridley Scott", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "Which Marvel hero is known as the Sorcerer Supreme?",
+    "answers": [
+      { "text": "Doctor Strange", "correct": true },
+      { "text": "Scarlet Witch", "correct": false },
+      { "text": "Loki", "correct": false },
+      { "text": "Agatha Harkness", "correct": false }
+    ]
+  },
+  {
+    "category": "The Boys",
+    "question": "What is the name of the corporation behind the superheroes in The Boys?",
+    "answers": [
+      { "text": "Vought International", "correct": true },
+      { "text": "Homelander Corp", "correct": false },
+      { "text": "Seven Systems", "correct": false },
+      { "text": "Vox Dynamics", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "Who is the main protagonist of Attack on Titan?",
+    "answers": [
+      { "text": "Eren Yeager", "correct": true },
+      { "text": "Levi Ackerman", "correct": false },
+      { "text": "Armin Arlert", "correct": false },
+      { "text": "Mikasa Ackerman", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Marvel",
+    "question": "What is Black Panther’s real name?",
+    "answers": [
+      { "text": "T'Challa", "correct": true },
+      { "text": "M'Baku", "correct": false },
+      { "text": "N'Jadaka", "correct": false },
+      { "text": "W'Kabi", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "What is Wonder Woman’s homeland?",
+    "answers": [
+      { "text": "Themyscira", "correct": true },
+      { "text": "Atlantis", "correct": false },
+      { "text": "Nanda Parbat", "correct": false },
+      { "text": "Krypton", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Invincible",
+    "question": "What is Invincible’s real name?",
+    "answers": [
+      { "text": "Mark Grayson", "correct": true },
+      { "text": "Nolan Grayson", "correct": false },
+      { "text": "Allen", "correct": false },
+      { "text": "Rex Sloan", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Hollywood",
+    "question": "Who played Jack Sparrow in Pirates of the Caribbean?",
+    "answers": [
+      { "text": "Johnny Depp", "correct": true },
+      { "text": "Orlando Bloom", "correct": false },
+      { "text": "Tom Cruise", "correct": false },
+      { "text": "Brad Pitt", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Marvel",
+    "question": "What planet is Gamora from?",
+    "answers": [
+      { "text": "Zen-Whoberi", "correct": true },
+      { "text": "Xandar", "correct": false },
+      { "text": "Titan", "correct": false },
+      { "text": "Sovereign", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Anime/Manga",
+    "question": "What is Ichigo Kurosaki’s main weapon in Bleach?",
+    "answers": [
+      { "text": "Zangetsu", "correct": true },
+      { "text": "Benihime", "correct": false },
+      { "text": "Kyoka Suigetsu", "correct": false },
+      { "text": "Senbonzakura", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Marvel",
+    "question": "Who becomes Captain America after Steve Rogers in the MCU?",
+    "answers": [
+      { "text": "Sam Wilson", "correct": true },
+      { "text": "Bucky Barnes", "correct": false },
+      { "text": "John Walker", "correct": false },
+      { "text": "Sharon Carter", "correct": false }
+    ]
+  },
+
+  {
+    "category": "DC",
+    "question": "Which superhero is known as the Scarlet Speedster?",
+    "answers": [
+      { "text": "The Flash", "correct": true },
+      { "text": "Shazam", "correct": false },
+      { "text": "Nightwing", "correct": false },
+      { "text": "Aquaman", "correct": false }
+    ]
+  },
+
+  {
+    "category": "The Boys",
+    "question": "Which hero is the leader of The Seven?",
+    "answers": [
+      { "text": "Homelander", "correct": true },
+      { "text": "Queen Maeve", "correct": false },
+      { "text": "A-Train", "correct": false },
+      { "text": "Black Noir", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Hollywood",
+    "question": "Which film won Best Picture at the 2020 Oscars?",
+    "answers": [
+      { "text": "Parasite", "correct": true },
+      { "text": "1917", "correct": false },
+      { "text": "Joker", "correct": false },
+      { "text": "Ford v Ferrari", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Marvel",
+    "question": "What is the real name of Scarlet Witch?",
+    "answers": [
+      { "text": "Wanda Maximoff", "correct": true },
+      { "text": "Natasha Romanoff", "correct": false },
+      { "text": "Carol Danvers", "correct": false },
+      { "text": "Hope van Dyne", "correct": false }
+    ]
+  },
+
+  {
+    "category": "DC",
+    "question": "Who killed Superman in the Death of Superman storyline?",
+    "answers": [
+      { "text": "Doomsday", "correct": true },
+      { "text": "Darkseid", "correct": false },
+      { "text": "Lex Luthor", "correct": false },
+      { "text": "Brainiac", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Anime/Manga",
+    "question": "What is the name of Luffy’s signature attack?",
+    "answers": [
+      { "text": "Gomu Gomu no Pistol", "correct": true },
+      { "text": "Spirit Gun", "correct": false },
+      { "text": "Detroit Smash", "correct": false },
+      { "text": "Kamehameha", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Invincible",
+    "question": "What is the species of Omni-Man?",
+    "answers": [
+      { "text": "Viltrumite", "correct": true },
+      { "text": "Kree", "correct": false },
+      { "text": "Skrull", "correct": false },
+      { "text": "Namekian", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Hollywood",
+    "question": "What is the highest-grossing film of all time (as of 2024)?",
+    "answers": [
+      { "text": "Avatar", "correct": true },
+      { "text": "Avengers: Endgame", "correct": false },
+      { "text": "Titanic", "correct": false },
+      { "text": "Avatar: The Way of Water", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Marvel",
+    "question": "Which character is known as the 'Merc with a Mouth'?",
+    "answers": [
+      { "text": "Deadpool", "correct": true },
+      { "text": "Spider-Man", "correct": false },
+      { "text": "Hawkeye", "correct": false },
+      { "text": "Star-Lord", "correct": false }
+    ]
+  },
+
+  {
+    "category": "DC",
+    "question": "What is Harley Quinn’s real name?",
+    "answers": [
+      { "text": "Harleen Quinzel", "correct": true },
+      { "text": "Selina Kyle", "correct": false },
+      { "text": "Pamela Isley", "correct": false },
+      { "text": "Barbara Gordon", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Anime/Manga",
+    "question": "What is Goku’s Saiyan name?",
+    "answers": [
+      { "text": "Kakarot", "correct": true },
+      { "text": "Tarble", "correct": false },
+      { "text": "Vegeta", "correct": false },
+      { "text": "Bardock", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Marvel",
+    "question": "Who founded the X-Men?",
+    "answers": [
+      { "text": "Professor X", "correct": true },
+      { "text": "Magneto", "correct": false },
+      { "text": "Beast", "correct": false },
+      { "text": "Cyclops", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Hollywood",
+    "question": "Which actor voices Groot in the MCU?",
+    "answers": [
+      { "text": "Vin Diesel", "correct": true },
+      { "text": "Bradley Cooper", "correct": false },
+      { "text": "Chris Pratt", "correct": false },
+      { "text": "Dave Bautista", "correct": false }
+    ]
+  },
+
+  {
+    "category": "Invincible",
+    "question": "Who trains Mark Grayson in the early part of his superhero journey?",
+    "answers": [
+      { "text": "Omni-Man", "correct": true },
+      { "text": "Robot", "correct": false },
+      { "text": "Duplicate", "correct": false },
+      { "text": "Monster Girl", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "What is the name of Peter Quill’s signature weapon?",
+    "answers": [
+      { "text": "Quad Blasters", "correct": true },
+      { "text": "Nova Cannons", "correct": false },
+      { "text": "Pulse Pistols", "correct": false },
+      { "text": "Ion Shooters", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "Who is the ruler of Atlantis in DC Comics?",
+    "answers": [
+      { "text": "Aquaman", "correct": true },
+      { "text": "Ocean Master", "correct": false },
+      { "text": "Black Manta", "correct": false },
+      { "text": "Tempest", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "What is the name of Tanjiro’s sword style in Demon Slayer?",
+    "answers": [
+      { "text": "Water Breathing", "correct": true },
+      { "text": "Flame Breathing", "correct": false },
+      { "text": "Thunder Breathing", "correct": false },
+      { "text": "Beast Breathing", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "Which Avenger can lift Mjolnir besides Thor?",
+    "answers": [
+      { "text": "Captain America", "correct": true },
+      { "text": "Hulk", "correct": false },
+      { "text": "Vision", "correct": false },
+      { "text": "Doctor Strange", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "What is the Joker’s real name in the 2019 film?",
+    "answers": [
+      { "text": "Arthur Fleck", "correct": true },
+      { "text": "Jack Napier", "correct": false },
+      { "text": "Jerome Valeska", "correct": false },
+      { "text": "Unknown", "correct": false }
+    ]
+  },
+  {
+    "category": "Hollywood",
+    "question": "Which movie features the line 'I'm the king of the world!'?",
+    "answers": [
+      { "text": "Titanic", "correct": true },
+      { "text": "Avatar", "correct": false },
+      { "text": "The Wolf of Wall Street", "correct": false },
+      { "text": "Cast Away", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "What is the name of Tony Stark’s A.I. after JARVIS?",
+    "answers": [
+      { "text": "F.R.I.D.A.Y.", "correct": true },
+      { "text": "KAREN", "correct": false },
+      { "text": "E.D.I.T.H.", "correct": false },
+      { "text": "ALFRED", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "Which villain broke Batman’s back?",
+    "answers": [
+      { "text": "Bane", "correct": true },
+      { "text": "Deathstroke", "correct": false },
+      { "text": "Ra’s al Ghul", "correct": false },
+      { "text": "Two-Face", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "In My Hero Academia, what is Deku’s real name?",
+    "answers": [
+      { "text": "Izuku Midoriya", "correct": true },
+      { "text": "Katsuki Bakugo", "correct": false },
+      { "text": "Shoto Todoroki", "correct": false },
+      { "text": "Tenya Iida", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "What species is Rocket Raccoon?",
+    "answers": [
+      { "text": "Genetically Enhanced Raccoon", "correct": true },
+      { "text": "Alien Mammal", "correct": false },
+      { "text": "Cyborg Ferret", "correct": false },
+      { "text": "Human Experiment", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "What is the name of the prison used for meta-humans in DC?",
+    "answers": [
+      { "text": "Iron Heights", "correct": true },
+      { "text": "Blackgate", "correct": false },
+      { "text": "Arkham Asylum", "correct": false },
+      { "text": "Belle Reve", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "In Dragon Ball Z, who defeats Frieza on Namek?",
+    "answers": [
+      { "text": "Goku", "correct": true },
+      { "text": "Vegeta", "correct": false },
+      { "text": "Piccolo", "correct": false },
+      { "text": "Gohan", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "What is the real name of Black Widow?",
+    "answers": [
+      { "text": "Natasha Romanoff", "correct": true },
+      { "text": "Yelena Belova", "correct": false },
+      { "text": "Wanda Maximoff", "correct": false },
+      { "text": "Maria Hill", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "Which hero uses a power ring fueled by willpower?",
+    "answers": [
+      { "text": "Green Lantern", "correct": true },
+      { "text": "Shazam", "correct": false },
+      { "text": "Blue Beetle", "correct": false },
+      { "text": "Hawkman", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "What is the name of Light Yagami’s notebook?",
+    "answers": [
+      { "text": "Death Note", "correct": true },
+      { "text": "Shinigami Book", "correct": false },
+      { "text": "Judgement Ledger", "correct": false },
+      { "text": "Soul Record", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "Who is the king of the Inhumans?",
+    "answers": [
+      { "text": "Black Bolt", "correct": true },
+      { "text": "Medusa", "correct": false },
+      { "text": "Karnak", "correct": false },
+      { "text": "Maximus", "correct": false }
+    ]
+  },
+  {
+    "category": "Hollywood",
+    "question": "Which film begins with the line 'A long time ago in a galaxy far, far away...'?",
+    "answers": [
+      { "text": "Star Wars", "correct": true },
+      { "text": "Star Trek", "correct": false },
+      { "text": "Dune", "correct": false },
+      { "text": "Guardians of the Galaxy", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "Which character becomes the White Vision?",
+    "answers": [
+      { "text": "Reconstructed Vision", "correct": true },
+      { "text": "Ultron", "correct": false },
+      { "text": "Jarvis", "correct": false },
+      { "text": "Wanda’s Conjured Vision", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "Which DC speedster is known as 'Kid Flash'?",
+    "answers": [
+      { "text": "Wally West", "correct": true },
+      { "text": "Jay Garrick", "correct": false },
+      { "text": "Bart Allen", "correct": false },
+      { "text": "Eobard Thawne", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "Who is known as the 'Hero Killer' in My Hero Academia?",
+    "answers": [
+      { "text": "Stain", "correct": true },
+      { "text": "Dabi", "correct": false },
+      { "text": "Shigaraki", "correct": false },
+      { "text": "Twice", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "Who is the main villain in Avengers: Infinity War?",
+    "answers": [
+      { "text": "Thanos", "correct": true },
+      { "text": "Ultron", "correct": false },
+      { "text": "Hela", "correct": false },
+      { "text": "Ego", "correct": false }
+    ]
+  },
+  {
+    "category": "Hollywood",
+    "question": "Which actor played Neo in The Matrix?",
+    "answers": [
+      { "text": "Keanu Reeves", "correct": true },
+      { "text": "Laurence Fishburne", "correct": false },
+      { "text": "Tom Cruise", "correct": false },
+      { "text": "Will Smith", "correct": false }
+    ]
+  },
+  {
+    "category": "Marvel",
+    "question": "Who is Loki’s adoptive father?",
+    "answers": [
+      { "text": "Odin", "correct": true },
+      { "text": "Heimdall", "correct": false },
+      { "text": "Bor", "correct": false },
+      { "text": "Tyr", "correct": false }
+    ]
+  },
+  {
+    "category": "DC",
+    "question": "Which villain is known as the Clown Prince of Crime?",
+    "answers": [
+      { "text": "Joker", "correct": true },
+      { "text": "Riddler", "correct": false },
+      { "text": "Two-Face", "correct": false },
+      { "text": "Penguin", "correct": false }
+    ]
+  },
+  {
+    "category": "Anime/Manga",
+    "question": "Who is the creator of One Punch Man?",
+    "answers": [
+      { "text": "ONE", "correct": true },
+      { "text": "Oda", "correct": false },
+      { "text": "Toriyama", "correct": false },
+      { "text": "Kubo", "correct": false }
+    ]
+  },
+  {
+    "category": "Hollywood",
+    "question": "Which movie features the song 'My Heart Will Go On'?",
+    "answers": [
+      { "text": "Titanic", "correct": true },
+      { "text": "The Bodyguard", "correct": false },
+      { "text": "Moulin Rouge", "correct": false },
+      { "text": "La La Land", "correct": false }
+    ]
+  }
+]
