@@ -1,36 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Quizzer - A Hibro_Labs Venture</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quizzer - A Hibro_Labs Venture</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page-wrapper">
     <div class="quiz-container">
-      <h1>Quizzer - A<br />Hibro_Labs Venture</h1>
+      <h1>Quizzer<br><span class="subtitle">A Hibro_Labs Venture</span></h1>
+
+      <div class="top-bar">
+        <div class="select-group">
+          <label for="category-select">Category</label>
+          <select id="category-select">
+            <option value="all">🌐 All</option>
+            <option value="Marvel">🦸‍♂️ Marvel</option>
+            <option value="DC">🦇 DC</option>
+            <option value="Anime/Manga">🍥 Anime & Manga</option>
+            <option value="Invincible">🩸 Invincible</option>
+            <option value="The Boys">😈 The Boys</option>
+            <option value="Hollywood">🎬 Hollywood</option>
+          </select>
+        </div>
+
+        <div class="select-group">
+          <label for="question-count">Questions</label>
+          <select id="question-count">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="status-text" class="status-text">Loading questions...</p>
+
+      <div id="progress-wrapper" class="progress-wrapper hidden">
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span id="progress-text" class="progress-text">0%</span>
+      </div>
+
       <div id="quiz" class="hidden">
-        <div id="question-container">
+        <div id="question-header">
+          <p id="question-counter" class="question-counter"></p>
+          <p id="live-score" class="live-score">Score: 0</p>
+        </div>
+
+        <div id="question-container" class="question-container">
           <p id="question"></p>
           <div id="answer-buttons" class="btn-grid"></div>
           <p id="answer-feedback" class="feedback-text hidden"></p>
         </div>
         <button id="next-btn" class="next-btn hidden">Next</button>
       </div>
+
       <div id="score-container" class="hidden">
         <h2>Quiz Complete</h2>
         <p>Your final score is:</p>
         <p id="score" class="score-number"></p>
         <button id="restart-btn" class="restart-btn">Play Again</button>
       </div>
-      <button id="start-btn" class="start-btn">Start Quiz</button>
+
+      <button id="start-btn" class="start-btn" disabled>Start Quiz</button>
     </div>
   </div>
+
   <footer>
     Created by Yadnesh Saindane<br />
     Under: Hibro-Labs Production
   </footer>
+
+  <!-- Sounds (put actual files in ./sounds/) -->
+  <audio id="sound-correct" src="sounds/correct.wav" preload="auto"></audio>
+  <audio id="sound-wrong" src="sounds/wrong.wav" preload="auto"></audio>
+  <audio id="sound-click" src="sounds/click.wav" preload="auto"></audio>
+
   <script src="quiz.js"></script>
 </body>
 </html>
