@@ -1,3 +1,5 @@
+const QUESTIONS_URL = 'questions.json';
+
 const startBtn = document.getElementById('start-btn');
 const quizContainer = document.getElementById('quiz');
 const questionElement = document.getElementById('question');
@@ -7,151 +9,264 @@ const scoreContainer = document.getElementById('score-container');
 const scoreElement = document.getElementById('score');
 const restartButton = document.getElementById('restart-btn');
 const feedbackText = document.getElementById('answer-feedback');
+const statusText = document.getElementById('status-text');
+const liveScore = document.getElementById('live-score');
+const questionCounter = document.getElementById('question-counter');
+const categorySelect = document.getElementById('category-select');
+const questionCountSelect = document.getElementById('question-count');
+const questionContainerEl = document.getElementById('question-container');
+const progressWrapper = document.getElementById('progress-wrapper');
+const progressFill = document.getElementById('progress-fill');
+const progressText = document.getElementById('progress-text');
 
-let shuffledQuestions, currentQuestionIndex, score;
+// Sounds
+const soundCorrect = document.getElementById('sound-correct');
+const soundWrong = document.getElementById('sound-wrong');
+const soundClick = document.getElementById('sound-click');
 
-const questions = [
-  // Marvel
-  { category: 'Marvel', question: "Who is known as the 'First Avenger'?", answers: [ { text: "Iron Man", correct: false },{ text: "Captain America", correct: true },{ text: "Thor", correct: false },{ text: "Hulk", correct: false } ] },
-  { category: 'Marvel', question: "What is Thor's hammer called?", answers: [ { text: "Mjolnir", correct: true },{ text: "Stormbreaker", correct: false },{ text: "Gungnir", correct: false },{ text: "Thunderstrike", correct: false } ] },
-  { category: 'Marvel', question: "Who is the leader of the X-Men?", answers: [ { text: "Cyclops", correct: true },{ text: "Wolverine", correct: false },{ text: "Professor X", correct: true },{ text: "Magneto", correct: false } ] },
-  { category: 'Marvel', question: "Which Marvel character is blind and uses echolocation?", answers: [ { text: "Daredevil", correct: true },{ text: "Blade", correct: false },{ text: "Ghost Rider", correct: false },{ text: "Punisher", correct: false } ] },
-  { category: 'Marvel', question: "Captain America's shield is made of?", answers: [ { text: "Vibranium", correct: true },{ text: "Adamantium", correct: false },{ text: "Uru", correct: false },{ text: "Titanium", correct: false } ] },
+let allQuestions = [];
+let shuffledQuestions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+let quizActive = false;
 
-  // DC
-  { category: 'DC', question: "Superhero from planet Krypton is?", answers: [ { text: "Superman", correct: true },{ text: "Batman", correct: false },{ text: "Wonder Woman", correct: false },{ text: "Green Lantern", correct: false } ] },
-  { category: 'DC', question: "Who is the fastest superhero in DC?", answers: [ { text: "The Flash", correct: true },{ text: "Superman", correct: false },{ text: "Green Arrow", correct: false },{ text: "Aquaman", correct: false } ] },
-  { category: 'DC', question: "Aquaman's real name is?", answers: [ { text: "Arthur Curry", correct: true },{ text: "Orin", correct: false },{ text: "Mera", correct: false },{ text: "Clark Kent", correct: false } ] },
-  { category: 'DC', question: "Hero who uses lasso of truth?", answers: [ { text: "Wonder Woman", correct: true },{ text: "Zatanna", correct: false },{ text: "Batgirl", correct: false },{ text: "Hawkgirl", correct: false } ] },
-  { category: 'DC', question: "Who founded the Justice League?", answers: [ { text: "Martian Manhunter", correct: true },{ text: "Batman", correct: false },{ text: "Superman", correct: false },{ text: "Wonder Woman", correct: false } ] },
+// ────────────────────────────────
+// FETCH QUESTIONS.JSON
+// ────────────────────────────────
+fetch(QUESTIONS_URL)
+  .then(res => {
+    if (!res.ok) throw new Error('Failed to load questions.json');
+    return res.json();
+  })
+  .then(data => {
+    if (!Array.isArray(data) || !data.length) {
+      throw new Error('Invalid questions.json format');
+    }
+    allQuestions = data;
+    statusText.textContent = 'Questions loaded. Pick category & amount.';
+    startBtn.disabled = false;
+  })
+  .catch(err => {
+    console.error(err);
+    statusText.textContent = 'Error loading questions.json.';
+    startBtn.disabled = true;
+  });
 
-  // MCU
-  { category: 'MCU', question: "Which Infinity Stone does Vision have?", answers: [ { text: "Mind Stone", correct: true },{ text: "Time Stone", correct: false },{ text: "Power Stone", correct: false },{ text: "Space Stone", correct: false } ] },
-  { category: 'MCU', question: "Where did Tony Stark build his first Iron Man suit?", answers: [ { text: "Cave in Afghanistan", correct: true },{ text: "Stark Tower", correct: false },{ text: "New York", correct: false },{ text: "S.H.I.E.L.D base", correct: false } ] },
-  { category: 'MCU', question: "What organization does Captain America join?", answers: [ { text: "S.H.I.E.L.D.", correct: true },{ text: "H.Y.D.R.A.", correct: false },{ text: "The Avengers", correct: false },{ text: "A.I.M.", correct: false } ] },
-  { category: 'MCU', question: "Who is Black Panther's sister?", answers: [ { text: "Shuri", correct: true },{ text: "Nakia", correct: false },{ text: "Okoye", correct: false },{ text: "Ramonda", correct: false } ] },
-  { category: 'MCU', question: "Spider-Man first appeared in MCU in?", answers: [ { text: "Captain America: Civil War", correct: true },{ text: "Spider-Man: Homecoming", correct: false },{ text: "Avengers: Infinity War", correct: false },{ text: "Iron Man 3", correct: false } ] },
+// ────────────────────────────────
+// EVENT LISTENERS
+// ────────────────────────────────
+startBtn.addEventListener('click', () => {
+  playSound(soundClick);
+  startQuiz();
+});
 
-  // Hollywood
-  { category: 'Hollywood', question: "Who directed 'Inception'?", answers: [ { text: "Christopher Nolan", correct: true },{ text: "Steven Spielberg", correct: false },{ text: "James Cameron", correct: false },{ text: "Quentin Tarantino", correct: false } ] },
-  { category: 'Hollywood', question: "Which movie features the quote 'I'll be back'?", answers: [ { text: "The Terminator", correct: true },{ text: "Rambo", correct: false },{ text: "Predator", correct: false },{ text: "Robocop", correct: false } ] },
-  { category: 'Hollywood', question: "Ship's name in 'Alien' film?", answers: [ { text: "Nostromo", correct: true },{ text: "Serenity", correct: false },{ text: "Galactica", correct: false },{ text: "Discovery", correct: false } ] },
-  { category: 'Hollywood', question: "Who starred as Jack Dawson in 'Titanic'?", answers: [ { text: "Leonardo DiCaprio", correct: true },{ text: "Brad Pitt", correct: false },{ text: "Tom Cruise", correct: false },{ text: "Johnny Depp", correct: false } ] },
-  { category: 'Hollywood', question: "Best Picture Oscar of 2020?", answers: [ { text: "Parasite", correct: true },{ text: "1917", correct: false },{ text: "Joker", correct: false },{ text: "Once Upon a Time in Hollywood", correct: false } ] },
-
-  // Extra questions to give more volume
-  { category: 'Marvel', question: "Which hero is known as the 'Merc with a Mouth'?", answers: [ { text: "Deadpool", correct: true },{ text: "Wolverine", correct: false },{ text: "Spider-Man", correct: false },{ text: "Iron Man", correct: false } ] },
-  { category: 'DC', question: "Where is Batman's primary base of operation?", answers: [ { text: "Gotham City", correct: true },{ text: "Metropolis", correct: false },{ text: "Central City", correct: false },{ text: "Star City", correct: false } ] },
-  { category: 'MCU', question: "Who was the director of 'Guardians of the Galaxy'?", answers: [ { text: "James Gunn", correct: true },{ text: "Joss Whedon", correct: false },{ text: "Ryan Coogler", correct: false },{ text: "Taika Waititi", correct: false } ] },
-  { category: 'Hollywood', question: "In 'The Matrix', what color pill does Neo take?", answers: [ { text: "Red", correct: true },{ text: "Blue", correct: false },{ text: "Green", correct: false },{ text: "Black", correct: false } ] },
-  { category: 'Marvel', question: "Wakanda is located in which continent?", answers: [ { text: "Africa", correct: true },{ text: "Asia", correct: false },{ text: "South America", correct: false },{ text: "Europe", correct: false } ] },
-];
-
-startBtn.addEventListener('click', startQuiz);
 nextButton.addEventListener('click', () => {
+  if (!quizActive) return;
+  playSound(soundClick);
   currentQuestionIndex++;
   feedbackText.classList.add('hidden');
   setNextQuestion();
 });
+
 restartButton.addEventListener('click', () => {
-  startQuiz();
+  playSound(soundClick);
   scoreContainer.classList.add('hidden');
-  feedbackText.classList.add('hidden');
+  startQuiz();
 });
 
+// ────────────────────────────────
+// START QUIZ
+// ────────────────────────────────
 function startQuiz() {
+  if (!allQuestions.length) return;
+
+  quizActive = true;
   score = 0;
-  scoreElement.textContent = score;
   currentQuestionIndex = 0;
-  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+  liveScore.textContent = 'Score: 0';
+  feedbackText.classList.add('hidden');
+  statusText.textContent = '';
+
+  const selectedCategory = categorySelect.value;
+  const requestedCount = parseInt(questionCountSelect.value, 10);
+
+  let filtered =
+    selectedCategory === 'all'
+      ? [...allQuestions]
+      : allQuestions.filter(q => q.category === selectedCategory);
+
+  let available = filtered.length;
+
+  if (available === 0) {
+    statusText.textContent = 'No questions available for this category.';
+    quizActive = false;
+    return;
+  }
+
+  if (available < requestedCount) {
+    statusText.textContent =
+      `Only ${available} questions available for this category. Starting with ${available}.`;
+  } else {
+    statusText.textContent = '';
+  }
+
+  shuffledQuestions = shuffleArray(filtered).slice(
+    0,
+    Math.min(requestedCount, available)
+  );
+
+  progressWrapper.classList.remove('hidden');
+  setProgress(0);
+
   quizContainer.classList.remove('hidden');
   scoreContainer.classList.add('hidden');
   startBtn.classList.add('hidden');
   nextButton.classList.add('hidden');
-  feedbackText.classList.add('hidden');
+
   setNextQuestion();
 }
 
+// ────────────────────────────────
+// QUESTION FLOW
+// ────────────────────────────────
 function setNextQuestion() {
   resetState();
+
   if (currentQuestionIndex >= shuffledQuestions.length) {
+    setProgress(1);
     endQuiz();
     return;
   }
+
+  const current = currentQuestionIndex + 1;
+  const total = shuffledQuestions.length;
+  questionCounter.textContent = `Question ${current} / ${total}`;
+
+  nextButton.textContent = current === total ? 'Finish' : 'Next';
+
+  setProgress((current - 1) / total);
   showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
 function showQuestion(question) {
+  // trigger fade animation
+  questionContainerEl.classList.remove('fade-in');
+  // force reflow to restart animation
+  void questionContainerEl.offsetWidth;
+  questionContainerEl.classList.add('fade-in');
+
   questionElement.textContent = question.question;
-  // Shuffle answers to randomize button order
-  let shuffledAnswers = question.answers
-    .map(value => ({ value, sort: Math.random() })) // attach random sort keys
-    .sort((a, b) => a.sort - b.sort)               // sort by random keys
-    .map(({ value }) => value);                     // extract shuffled values
+
+  const shuffledAnswers = shuffleArray(question.answers);
 
   shuffledAnswers.forEach(answer => {
     const button = document.createElement('button');
     button.textContent = answer.text;
-    button.classList.add('btn');
-    button.addEventListener('click', () => selectAnswer(button, answer.correct));
+    button.classList.add('answer-btn');
+    button.dataset.correct = String(!!answer.correct);
+    button.addEventListener('click', () => selectAnswer(button));
     answerButtons.appendChild(button);
   });
 }
 
-
 function resetState() {
-  clearStatusClass(document.body);
-  nextButton.classList.add('hidden');
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
+  feedbackText.classList.add('hidden');
+  nextButton.classList.add('hidden');
 }
 
-function selectAnswer(button, correct) {
-  if (correct) {
-    feedbackText.textContent = "Correct! Well done.";
+// ────────────────────────────────
+// ANSWER SELECTION
+// ────────────────────────────────
+function selectAnswer(selectedButton) {
+  if (!quizActive) return;
+
+  const isCorrect = selectedButton.dataset.correct === 'true';
+
+  if (isCorrect) {
     score++;
-    scoreElement.textContent = score;
+    feedbackText.textContent = 'Correct!';
+    playSound(soundCorrect);
   } else {
-    feedbackText.textContent = "Wrong Answer! Better luck on the next.";
+    feedbackText.textContent = 'Wrong!';
+    playSound(soundWrong);
   }
   feedbackText.classList.remove('hidden');
 
-  setStatusClass(button, correct);
-  Array.from(answerButtons.children).forEach(btn => {
+  liveScore.textContent = `Score: ${score}`;
+
+  const buttons = Array.from(answerButtons.children);
+
+  buttons.forEach(btn => {
     btn.disabled = true;
-    if (btn !== button) {
-      setStatusClass(btn, false);
+    const btnIsCorrect = btn.dataset.correct === 'true';
+    if (btnIsCorrect) {
+      btn.classList.add('correct');
+    } else if (btn === selectedButton && !isCorrect) {
+      btn.classList.add('wrong');
     }
   });
+
   nextButton.classList.remove('hidden');
 }
 
-function setStatusClass(element, correct) {
-  clearStatusClass(element);
-  if (correct) element.classList.add('correct');
-  else element.classList.add('wrong');
-}
-
-function clearStatusClass(element) {
-  element.classList.remove('correct');
-  element.classList.remove('wrong');
-}
-
+// ────────────────────────────────
+// END QUIZ
+// ────────────────────────────────
 function endQuiz() {
+  quizActive = false;
   quizContainer.classList.add('hidden');
   scoreContainer.classList.remove('hidden');
   startBtn.classList.remove('hidden');
   nextButton.classList.add('hidden');
-  feedbackText.classList.add('hidden');
+  progressWrapper.classList.add('hidden');
 
-  let totalQuestions = shuffledQuestions.length;
-  let praise = '';
+  const total = shuffledQuestions.length;
+  const percent = (score / total) * 100;
 
-  let scorePercent = (score / totalQuestions) * 100;
-  if (scorePercent >= 90) praise = "You're a true pop culture nerd! 👏";
-  else if (scorePercent >= 50) praise = "Well done! You have good knowledge.";
-  else praise = "Looks like you need to increase your pop culture knowledge! 📚";
+  let praise =
+    percent >= 90
+      ? "You're a true pop culture god! 🔥"
+      : percent >= 70
+      ? 'Great job! 👊'
+      : percent >= 50
+      ? 'Not bad!'
+      : 'You need to watch more movies and anime. 📚';
 
-  scoreElement.textContent = `${score} / ${totalQuestions}. ${praise}`;
+  scoreElement.textContent = `${score} / ${total} — ${praise}`;
+}
+
+// ────────────────────────────────
+// UTILITY
+// ────────────────────────────────
+function shuffleArray(arr) {
+  const array = [...arr];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function setProgress(ratio) {
+  const clamped = Math.max(0, Math.min(1, ratio));
+  const percent = Math.round(clamped * 100);
+  if (progressFill) {
+    progressFill.style.width = `${percent}%`;
+  }
+  if (progressText) {
+    progressText.textContent = `${percent}%`;
+  }
+}
+
+function playSound(el) {
+  if (!el) return;
+  try {
+    el.currentTime = 0;
+    el.play().catch(() => {});
+  } catch {
+    // ignore
+  }
 }
